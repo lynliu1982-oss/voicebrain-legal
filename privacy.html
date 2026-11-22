@@ -21,7 +21,7 @@
 <body>
 <main>
   <h1>Privacy Policy</h1>
-  <p class="sub">VoiceBrain · Effective date: November 21, 2026</p>
+  <p class="sub">VoiceBrain · Effective date: November 22, 2026</p>
 
   <h2>1. Who we are</h2>
   <p>VoiceBrain ("the app") is developed and published by an independent developer.
@@ -31,26 +31,33 @@
   <ul>
     <li><strong>Recordings</strong> — the audio you record is saved in the app's own storage on your device.</li>
     <li><strong>Transcripts, notes, key points, to-dos, diary entries</strong> — saved in a local database on your device.</li>
+    <li><strong>AI request history</strong> — the prompt text sent and the answer returned are also kept in that local database so you can review them.</li>
     <li><strong>Subscription state and usage counters</strong> — saved in the app's local preferences.</li>
   </ul>
-  <p>We do not run a user account system, and we do not upload your library to our own servers.</p>
+  <p>We do not run a user account system. Your library is never uploaded to us as a whole.</p>
 
   <h2>3. When data leaves your device</h2>
   <div class="card">
-    <p><strong>Speech recognition.</strong> Audio is passed to Apple's on-device speech framework
-       on iOS 26 and later. On devices that cannot use that framework, recognition runs locally with
-       an offline model bundled in the app. No audio is uploaded for transcription in either case.</p>
+    <p><strong>Speech recognition.</strong> Recording is transcribed on your device with Apple's
+       on-device speech framework. The quick voice search on the home screen also uses Apple's speech
+       recognition; if your device or language cannot run it on device, Apple may process that short
+       clip on its servers under Apple's privacy policy. We never send audio to our own servers.</p>
   </div>
   <div class="card">
-    <p><strong>AI answers, key points and diary writing.</strong> The <em>text</em> of your notes
-       (not the audio) is sent over HTTPS to a third-party large language model provider strictly to
-       produce the result you asked for. Those requests are transient and are not used by us to
-       build a profile of you.</p>
+    <p><strong>AI answers, key points and diary.</strong> Only the <em>text</em> of the notes involved
+       (never the audio) is sent over HTTPS to a server operated by the developer, which forwards it to
+       our AI provider, DeepSeek, solely to produce the result you asked for. We do not store your text
+       on that server after the request completes. DeepSeek's handling of API data is described in
+       <a href="https://platform.deepseek.com">DeepSeek's privacy policy</a>. We do not use your notes
+       for advertising or to build a profile of you.</p>
   </div>
   <div class="card">
     <p><strong>Purchases.</strong> Handled by Apple. We never see or store your payment details.
        Apple tells us only whether a subscription is active.</p>
   </div>
+  <p>AI features stay switched off until you agree to this sharing in the app, and you can turn them
+     off at any time in <strong>Settings → AI data sharing</strong>. With it off, nothing is sent to
+     DeepSeek.</p>
 
   <h2>4. What we do not do</h2>
   <ul>
@@ -60,17 +67,17 @@
   </ul>
 
   <h2>5. Retention and deletion</h2>
-  <p>Recordings and notes stay on your device until you delete them in the app. Deleting a note
-     removes its audio and text. Deleting the app removes everything the app stored, including
-     your library.</p>
+  <p>Recordings, notes and AI request history stay on your device until you delete them in the app.
+     Deleting a note removes its audio and text. Deleting the app removes everything the app stored,
+     including your library and the local AI request history.</p>
 
   <h2>6. Children</h2>
   <p>The app is not directed to children under 13, and we do not knowingly collect data from them.</p>
 
   <h2>7. Your rights</h2>
   <p>Because your content lives on your device, you can access, export and delete it directly in
-     the app. For any request about data we may hold (for example a purchase record held by Apple),
-     contact us at the address above.</p>
+     the app, and you can withdraw the AI sharing consent at any time. For any request about data we
+     may hold (for example a purchase record held by Apple), contact us at the address above.</p>
 
   <h2>8. Changes to this policy</h2>
   <p>If this policy changes, the updated version will be published at this same address with a new
