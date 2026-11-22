@@ -32,7 +32,7 @@
     <li><strong>Recordings</strong> — the audio you record is saved in the app's own storage on your device.</li>
     <li><strong>Transcripts, notes, key points, to-dos, diary entries</strong> — saved in a local database on your device.</li>
     <li><strong>AI request history</strong> — the prompt text sent and the answer returned are also kept in that local database so you can review them.</li>
-    <li><strong>Subscription state and usage counters</strong> — saved in the app's local preferences.</li>
+    <li><strong>Subscription state and the weekly AI usage count reported by our server</strong> — saved in the app's local preferences.</li>
   </ul>
   <p>We do not run a user account system. Your library is never uploaded to us as a whole.</p>
 
@@ -44,6 +44,15 @@
        clip on its servers under Apple's privacy policy. We never send audio to our own servers.</p>
   </div>
   <div class="card">
+    <p><strong>Device token and AI usage count.</strong> On first launch the app asks our server for a
+       random device token. The token is stored in the iOS Keychain on your device and in a database
+       on our server. It is used only to authenticate your AI requests and to count how many AI
+       requests you make each week (100 per week, resetting Monday). It contains no personal
+       information, is not derived from your Apple ID, and cannot be used to identify you. Our
+       server keeps this token, its trial start date and its weekly counter until you ask us to
+       delete them (see Retention below); old records are not cleared automatically.</p>
+  </div>
+  <div class="card">
     <p><strong>AI answers, key points and diary.</strong> Only the <em>text</em> of the notes involved
        (never the audio) is sent over HTTPS to a server operated by the developer, which forwards it to
        our AI provider, DeepSeek, solely to produce the result you asked for. We do not store your text
@@ -52,8 +61,11 @@
        for advertising or to build a profile of you.</p>
   </div>
   <div class="card">
-    <p><strong>Purchases.</strong> Handled by Apple. We never see or store your payment details.
-       Apple tells us only whether a subscription is active.</p>
+    <p><strong>Purchases.</strong> Handled by Apple; we never see or store your payment details.
+       When you buy or restore a subscription, the app sends the signed App Store transaction to our
+       server, which checks Apple's signature and keeps only the transaction identifier and the
+       subscription's expiry date. That record is used to confirm your subscription is active (and to
+       skip the 7-day trial limit) and stays on our server until you ask us to delete it.</p>
   </div>
   <p>AI features stay switched off until you agree to this sharing in the app, and you can turn them
      off at any time in <strong>Settings → AI data sharing</strong>. With it off, nothing is sent to
@@ -70,6 +82,10 @@
   <p>Recordings, notes and AI request history stay on your device until you delete them in the app.
      Deleting a note removes its audio and text. Deleting the app removes everything the app stored,
      including your library and the local AI request history.</p>
+  <p>On our server we keep only: the random device token, its trial start date, its weekly AI usage
+     count, and — if you subscribed — the App Store transaction identifier and expiry date. None of
+     these contain your notes. They are not removed automatically; email us at the address below and
+     we will delete the record for your device.</p>
 
   <h2>6. Children</h2>
   <p>The app is not directed to children under 13, and we do not knowingly collect data from them.</p>
