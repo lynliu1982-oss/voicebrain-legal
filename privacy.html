@@ -29,14 +29,15 @@
 
   <h2>2. What the app stores on your device</h2>
   <ul>
-    <li><strong>Recordings</strong> — the audio you record is saved in the app's own storage on your device.</li>
-    <li><strong>Transcripts, notes, key points, to-dos, diary entries</strong> — saved in a local database on your device.</li>
-    <li><strong>AI request history</strong> — the prompt text sent and the answer returned are also kept in that local database so you can review them.</li>
-    <li><strong>Subscription state and the weekly AI usage count reported by our server</strong> — saved in the app's local preferences.</li>
+    <li><strong>Recordings</strong> — the audio files you record are saved in the app's own storage on your device.</li>
+    <li><strong>Transcripts, notes, key points, to-dos and diary entries</strong> — saved in a local database on your device.</li>
+    <li><strong>AI request history</strong> (the prompt text sent and the answer returned) — also saved in that local database so you can review it.</li>
+    <li><strong>Subscription state as answered by Apple, and the last weekly AI count our server reported</strong> — saved in the app's local preferences so the screen can show them without waiting for the network.</li>
   </ul>
-  <p>We do not run a user account system. Your library is never uploaded to us as a whole.</p>
+  <p>We do not operate a user account system. Your library is never uploaded to us as a whole.</p>
 
   <h2>3. When data leaves your device</h2>
+  <p>The app only sends data off the device when you use a feature that needs it:</p>
   <div class="card">
     <p><strong>Speech recognition.</strong> Recording is transcribed on your device with Apple's
        on-device speech framework. The quick voice search on the home screen also uses Apple's speech
@@ -44,13 +45,15 @@
        clip on its servers under Apple's privacy policy. We never send audio to our own servers.</p>
   </div>
   <div class="card">
-    <p><strong>Device token and AI usage count.</strong> On first launch the app asks our server for a
-       random device token. The token is stored in the iOS Keychain on your device and in a database
-       on our server. It is used only to authenticate your AI requests and to count how many AI
-       requests you make each week (100 per week, resetting Monday). It contains no personal
-       information, is not derived from your Apple ID, and cannot be used to identify you. Our
-       server keeps this token, its trial start date and its weekly counter until you ask us to
-       delete them (see Retention below); old records are not cleared automatically.</p>
+    <p><strong>Device attestation and AI usage count.</strong> On first launch the app uses Apple's App Attest
+       to generate a cryptographic key on your device and obtains a signed attestation from Apple; the private
+       key never leaves the device. The key identifier and Apple's attestation are sent once to our server,
+       which keeps only the key identifier and the public key to verify that later AI requests come from this
+       device, and to count how many AI requests you make each week (100 per week, resetting Monday). None of
+       this contains personal information, is derived from your Apple ID, or can be used to identify you. Our
+       server keeps this record and the weekly counter until you ask us to delete it (see Retention below);
+       old records are not cleared automatically. If Apple's attestation is unavailable (for example on a
+       simulator), AI features stay off; all other features keep working.</p>
   </div>
   <div class="card">
     <p><strong>AI answers, key points and diary.</strong> Only the <em>text</em> of the notes involved
@@ -61,11 +64,10 @@
        for advertising or to build a profile of you.</p>
   </div>
   <div class="card">
-    <p><strong>Purchases.</strong> Handled by Apple; we never see or store your payment details.
-       When you buy or restore a subscription, the app sends the signed App Store transaction to our
-       server, which checks Apple's signature and keeps only the transaction identifier and the
-       subscription's expiry date. That record is used to confirm your subscription is active (and to
-       skip the 7-day trial limit) and stays on our server until you ask us to delete it.</p>
+    <p><strong>Purchases.</strong> Handled entirely by Apple on your device; we never see or store your
+       payment details, and no purchase receipt is sent to our server. The app reads your current subscription
+       directly from Apple (StoreKit) to decide whether to show the subscription prompt; that answer stays on
+       your device.</p>
   </div>
   <p>AI features stay switched off until you agree to this sharing in the app, and you can turn them
      off at any time in <strong>Settings → AI data sharing</strong>. With it off, nothing is sent to
@@ -79,13 +81,13 @@
   </ul>
 
   <h2>5. Retention and deletion</h2>
-  <p>Recordings, notes and AI request history stay on your device until you delete them in the app.
+  <p>Your recordings, notes and AI request history stay on your device until you delete them in the app.
      Deleting a note removes its audio and text. Deleting the app removes everything the app stored,
      including your library and the local AI request history.</p>
-  <p>On our server we keep only: the random device token, its trial start date, its weekly AI usage
-     count, and — if you subscribed — the App Store transaction identifier and expiry date. None of
-     these contain your notes. They are not removed automatically; email us at the address below and
-     we will delete the record for your device.</p>
+  <p>On our server we keep only: the device key identifier, Apple's public attestation for that key, and
+     the weekly AI usage count. None of these contain your notes, and we hold no record of your purchases.
+     They are not removed automatically; email us at the address below and we will delete the record for
+     your device.</p>
 
   <h2>6. Children</h2>
   <p>The app is not directed to children under 13, and we do not knowingly collect data from them.</p>
@@ -96,7 +98,7 @@
      may hold (for example a purchase record held by Apple), contact us at the address above.</p>
 
   <h2>8. Changes to this policy</h2>
-  <p>If this policy changes, the updated version will be published at this same address with a new
+  <p>If this policy changes, the updated version will be published at the same address with a new
      effective date.</p>
 
   <h2>Contact</h2>
